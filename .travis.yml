@@ -1,0 +1,8 @@
+language: generic
+install:
+- curl -fsSL -o /tmp/packer.zip https://releases.hashicorp.com/packer/1.0.4/packer_1.0.4_linux_amd64.zip
+- mkdir $PWD/bin
+- unzip /tmp/packer.zip -d $PWD/bin
+- export PATH=$PWD/bin:$PATH
+script:
+- packer --version
