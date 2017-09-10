@@ -1,0 +1,9 @@
+#cloud-config
+users:
+  - default
+  - name: beol
+    primary-group: beol
+    groups: adm, wheel, systemd-journal
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    ssh-authorized-keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCuYC8Z2jkDqJTT9daDsOJrR1iDsnHA7lwa8GvQRh/rxkKW6TRlDp/OWfMAiPK6vWF3X37zelbPwhHxEkYlFkkb9bWMp0V79u+uNYKJcilKxdt5GNQ8eHyUUEsPUpG4UjBVHgD8DBkUG+LHSilYwpuflGDYvZ+PzkQYflz74FnbvkxjlLH8Y8llWd4FqnWKjkvoAs/N3COGRHUivd0UGm0JoDfJYQZtFfG0im0Gs8IPLGW22w5nCOILz58/Azq7eyNMNJr2zdEgTc+eN5Kv/82bdYSvnGy+KX4RFwjqeViMLrGndfuj2v/ut3fOTgc6yTebdoyIp6yVI6BYqstABZq5 beol@yana-mbp.local
