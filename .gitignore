@@ -1,0 +1,4 @@
+.aws_credentials
+.travis_ci_secret
+packer-build.pem
+packer-build.pem.pub
