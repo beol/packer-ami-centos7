@@ -2,22 +2,31 @@
     "builders": [
         {
             "type": "amazon-ebs",
-            "source_ami": "ami-46c1b650",
+            "source_ami": "ami-db48ada1",
             "region": "us-east-1",
             "instance_type": "t2.micro",
-            "ami_name": "centos7-64-{{ isotime \"20060106-150405\" }}",
-            "ami_description": "CentOS7 x86_64",
+            "ami_name": "base-centos-7-64-{{ isotime \"20060106-150405\" }}",
+            "ami_description": "CentOS 7 x86_64",
             "ssh_username": "centos",
             "ssh_keypair_name": "packer-build.pem",
             "ssh_private_key_file": "packer-build.pem",
-            "security_group_ids": [ "sg-5df2cb2d" ],
+            "security_group_ids": [ "sg-51756e21" ],
             "vpc_id": "vpc-659f8602",
             "ssh_pty": "true",
             "tags": {
                 "os_version": "CentOS 7",
-                "eol": "06/2024",
-                "created_at": "{{isotime \"06/01/2006 15:04:05\"}}"
+                "EOL": "06/2024",
+                "created_at": "{{isotime \"06/01/2006 15:04:05\"}}",
+                "Name": "Base CentOS 7"
             }
         }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "script": "./scripts/bootstrap.sh",
+            "execute_command": "chmod +x {{ .Path }}; sudo -H sh -c '{{ .Vars }} {{ .Path }}'"
+        }
     ]
+
 }
